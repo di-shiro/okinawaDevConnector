@@ -14,11 +14,11 @@ const User = require('../../models/User');
 router.post(
   '/',
   [
-    check('name', 'Name is required').not().isEmpty(),
-    check('email', 'Please include a valid email').isEmail(),
+    check('name', '😓 ( T_T)＼(^-^ ) Name is required').not().isEmpty(),
+    check('email', '😓 ( T_T)＼(^-^ ) Please include a valid email').isEmail(),
     check(
       'password',
-      'Please enter password with 6 or more character'
+      '😓 ヾ(๑╹◡╹)ﾉ" Please enter password with 6 or more character'
     ).isLength({ min: 6 }),
   ],
   async (req, res) => {

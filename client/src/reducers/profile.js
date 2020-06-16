@@ -39,6 +39,7 @@ export default function (state = initialState, action) {
         ...state,
         error: payload,
         loading: false,
+        // profile: null, // 新規ユーザーが他ユーザーのprofileを編集できてしまうバグへの対処
       };
 
     case CLEAR_PROFILE:

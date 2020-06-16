@@ -22,9 +22,15 @@ export const getCurrentProfile = () => async (dispatch) => {
       payload: res.data,
     });
   } catch (err) {
+    // 新規ユーザーが他ユーザーのprofileを編集できてしまうバグへの対処
+    dispatch({ type: CLEAR_PROFILE });
+
     dispatch({
       type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status },
+      payload: {
+        msg: err.response.statusText,
+        status: err.response.status,
+      },
     });
   }
 };

@@ -1,8 +1,8 @@
 Arguments: 
-  /Users/di-shiro/.nodebrew/node/v12.16.2/bin/node /usr/local/Cellar/yarn/1.22.4/libexec/bin/yarn.js server
+  /Users/di-shiro/.nodebrew/node/v12.16.2/bin/node /usr/local/Cellar/yarn/1.22.4/libexec/bin/yarn.js dev
 
 PATH: 
-  /Users/di-shiro/.nodebrew/current/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/di-shiro/.nodebrew/current/bin
+  /Users/di-shiro/.nodebrew/current/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 
 Yarn version: 
   1.22.4
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  SyntaxError: /Users/di-shiro/Documents/react_study/Brad-Traversy/okinawaDevConnector/package.json: Unexpected token } in JSON at position 501
+  SyntaxError: /Users/di-shiro/Documents/react_study/Brad-Traversy/okinawaDevConnector/package.json: Unexpected token / in JSON at position 443
       at JSON.parse (<anonymous>)
       at /usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:1625:59
       at Generator.next (<anonymous>)
@@ -29,7 +29,11 @@ npm manifest:
     "main": "server.js",
     "scripts": {
       "start": "node server",
-      "server": "nodemon server"
+      "server": "nodemon server",
+      "client": "cd client && yarn start",
+      "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+      "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn add --prefix client && yarn run build --prefix client"
+      // "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
     },
     "author": "Daiju Inoha",
     "license": "MIT",
@@ -41,12 +45,11 @@ npm manifest:
       "express-validator": "^6.5.0",
       "gravatar": "^1.8.0",
       "jsonwebtoken": "^8.5.1",
-      "mongoose": "^5.9.16",
+      "mongoose": "^5.9.16"
     },
     "devDependencies": {
       "nodemon": "^2.0.4",
       "request": "^2.88.2"
-  
     }
   }
 

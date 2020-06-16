@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://di-shiro:di-shiro@okinawadevconnector-tdbet.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken"
+}
